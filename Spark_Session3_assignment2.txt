@@ -1,0 +1,10 @@
+1. Create a simple pairRDD of (1, 2), (3, 4), (3, 6).
+val input = sc.parallelize(Array((1,2),(3,4),(3,6)))
+println(input.collect.mkString(","))
+
+2. Transform an RDD of ("a","b","c","d","e") to PairRDD (a,0), (b,1), (c,2), (d,3), (e,4)
+
+val input=sc.parallelize(List("a","b","c","d","e"))
+val withIndex=input.zipWithIndex
+withIndex.foreach(println) // method 1 to print values
+println(withIndex.collect.mkString(","))// method 2 to print values
